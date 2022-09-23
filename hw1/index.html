@@ -2,123 +2,93 @@
 <head>
     <title>Google Meet</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1">
 </head>
 
 <body>
-    <div class="root">
-    <div class="anchor">
-        <svg class="mute" height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-            <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-            <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-        </svg>
+    <div class="top">
+        <div class="anchor">
 
-        <img src="enzo_huang.gif">
+            <span class="material-icons" id="mute">mic_off</span>
+            <img src="enzo_huang.gif">
+            <span class="material-icons" id="pin">push_pin</span>
+            <span class="you">你</span>
 
-        <svg class="pin" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-            <g><rect fill="none" height="24" width="24"/></g>
-            <g><path d="M16,9V4l1,0c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1H7C6.45,2,6,2.45,6,3v0 c0,0.55,0.45,1,1,1l1,0v5c0,1.66-1.34,3-3,3h0v2h5.97v7l1,1l1-1v-7H19v-2h0C17.34,12,16,10.66,16,9z" fill-rule="evenodd"/>
-        </g></svg>
-        <span>你</span>
-        <div class="toolbar">
-            <div class="item">
-            <svg enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                <g><rect fill="none" height="24" width="24"/></g>
-                <g><path d="M16,9V4l1,0c0.55,0,1-0.45,1-1v0c0-0.55-0.45-1-1-1H7C6.45,2,6,2.45,6,3v0 c0,0.55,0.45,1,1,1l1,0v5c0,1.66-1.34,3-3,3h0v2h5.97v7l1,1l1-1v-7H19v-2h0C17.34,12,16,10.66,16,9z" fill-rule="evenodd"/>
-            </g></svg>
-            <span class="tooltip" id="tool">取消釘選</span>
+            <div class="toolbar">
+                <div class="item">
+                    <span class="material-icons">push_pin</span>
+                    <span class="tooltip" id="tool">取消釘選</span>
+                </div>
+
+                <div class="item">
+                    <span class="material-icons">grid_view</span>
+                    <span class="tooltip" id="tool">取消網格</span>
+                </div>
+
+                <div class="item">
+                    <span class="material-icons">close_fullscreen</span>
+                    <span class="tooltip" id="tool">取消全螢幕</span>
+                </div>
             </div>
+        </div>
 
-            <div class="item">
-            <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                <g fill-rule="evenodd"><path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"/>
-            </g></svg>
-            <span class="tooltip" id="tool">取消網格</span>
+        <div class="audience">
+            <div class="person" id="one">
+                <div class="mute">  
+                    <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+                <img src="enzo_huang.gif">
+                <span class="name">Enzo Huang</span>
             </div>
-
-            <div class="item">
-            <svg class="fullscreen" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                <rect fill="none" height="24" width="24"/>
-                <path d="M22,3.41l-5.29,5.29L20,12h-8V4l3.29,3.29L20.59,2L22,3.41z M3.41,22l5.29-5.29L12,20v-8H4l3.29,3.29L2,20.59L3.41,22z"/>
-            </svg>
-            <span class="tooltip" id="tool">取消全螢幕</span>
+            <div class="person" id="two">
+                <div class="mute">  
+                <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+                <img src="enzo_huang.gif">
+                <span class="name">Enzo Huang</span>
+            </div>
+            <div class="person" id="three">
+                <div class="mute">  
+                    <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+                <img src="enzo_huang.gif">
+                <span class="name">Enzo Huang</span>
+            </div>
+            <div class="person" id="four">
+                <div class="mute">  
+                    <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+                <img src="enzo_huang.gif">
+                <span class="name">Enzo Huang</span>
+            </div>
+            <div class="person" id="five">
+                <div class="mute">  
+                    <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+                <img src="enzo_huang.gif">
+                <span class="name">Enzo Huang</span>
             </div>
         </div>
     </div>
-
-    <div class="audience">
-        <div class="person" id="one">
-            <div class="mute">  
-                <svg height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                    <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                </svg>
-            </div>
-            <img src="enzo_huang.gif">
-            <span>Enzo Huang</span>
-        </div>
-        <div class="person" id="two">
-            <div class="mute">  
-                <svg height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                    <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                </svg>
-            </div>
-            <img src="enzo_huang.gif">
-            <span>Enzo Huang</span>
-        </div>
-        <div class="person" id="three">
-            <div class="mute">  
-                <svg height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                    <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                </svg>
-            </div>
-            <img src="enzo_huang.gif">
-            <span>Enzo Huang</span>
-        </div>
-        <div class="person" id="four">
-            <div class="mute">  
-                <svg height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                    <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                </svg>
-            </div>
-            <img src="enzo_huang.gif">
-            <span>Enzo Huang</span>
-        </div>
-        <div class="person" id="five">
-            <div class="mute">  
-                <svg height="18px" viewBox="0 0 24 24" width="18px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                    <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                </svg>
-            </div>
-            <img src="enzo_huang.gif">
-            <span>Enzo Huang</span>
-        </div>
-    </div>
-
+    
     <footer class="footer">
         <div class="timestamp">
-            <span style="color: #FFFFFF; font-family: Arial, Helvetica, sans-serif;">
+            <span style="color: #FFF; font-family: Arial, Helvetica, sans-serif;">
                 凌晨12:43 | Web Programming</span>
         </div>
         <ul class="control-buttons">
             <li>
                 <div class="checkbox">
-                    
+
                     <input type="checkbox" id="microphone">
                     <label for="microphone">
-                    
-                    <svg class="mute" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                        <path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
-                        <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.54-.9L19.73 21 21 19.73 4.27 3z"/>
-                    </svg>
-                    <svg class="unmute" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
-                    </svg>
+                    <span class="material-icons" id="unmute">mic</span>
+                    <span class="material-icons" id="mute">mic_off</span>
                     <span class="tooltip" id="on">開啟麥克風 (Ctrl + D)</span>
                     <span class="tooltip" id="off">關閉麥克風 (Ctrl + D)</span>
                     </label>
@@ -127,91 +97,58 @@
             </li>
             
             <li><button id="camera">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M9.56 8l-2-2-4.15-4.14L2 3.27 4.73 6H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.21 0 .39-.08.55-.18L19.73 21l1.41-1.41-8.86-8.86L9.56 8zM5 16V8h1.73l8 8H5zm10-8v2.61l6 6V6.5l-4 4V7c0-.55-.45-1-1-1h-5.61l2 2H15z"/>
-                </svg>
+                <span class="material-icons-outlined">videocam_off</span>
                 <span class="tooltip">開啟攝影機 (Ctrl + E)</span>
                 </button></li>
 
             <li><button id="raise">
-                <svg enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <rect fill="none" height="24" width="24"/>
-                    <path d="M21,7c0-1.38-1.12-2.5-2.5-2.5c-0.17,0-0.34,0.02-0.5,0.05V4c0-1.38-1.12-2.5-2.5-2.5c-0.23,0-0.46,0.03-0.67,0.09 C14.46,0.66,13.56,0,12.5,0c-1.23,0-2.25,0.89-2.46,2.06C9.87,2.02,9.69,2,9.5,2C8.12,2,7,3.12,7,4.5v5.89 c-0.34-0.31-0.76-0.54-1.22-0.66L5.01,9.52c-0.83-0.23-1.7,0.09-2.19,0.83c-0.38,0.57-0.4,1.31-0.15,1.95l2.56,6.43 C6.49,21.91,9.57,24,13,24h0c4.42,0,8-3.58,8-8V7z M19,16c0,3.31-2.69,6-6,6h0c-2.61,0-4.95-1.59-5.91-4.01l-2.6-6.54l0.53,0.14 c0.46,0.12,0.83,0.46,1,0.9L7,15h2V4.5C9,4.22,9.22,4,9.5,4S10,4.22,10,4.5V12h2V2.5C12,2.22,12.22,2,12.5,2S13,2.22,13,2.5V12h2V4 c0-0.28,0.22-0.5,0.5-0.5S16,3.72,16,4v8h2V7c0-0.28,0.22-0.5,0.5-0.5S19,6.72,19,7L19,16z"/>
-                </svg>
+                <span class="material-icons-outlined">back_hand</span>
                 <span class="tooltip">舉手</span>
             </button></li>
 
             <li><button id="share-screen">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M21 3H3c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h18c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 16.02H3V4.98h18v14.04zM10 12H8l4-4 4 4h-2v4h-4v-4z"/>
-                </svg>
+                <span class="material-icons">present_to_all</span>
                 <span class="tooltip">立即分享螢幕畫面</span>
             </button></li>
 
             <li><button id="more">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-                </svg>
+                <span class="material-icons">more_vert</span>
                 <span class="tooltip">更多選項</span>
             </button></li>
 
             <li><button id="leave">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/>
-                </svg>
+                <span class="material-icons">call_end</span>
                 <span class="tooltip">退出通話</span>
             </button></li>
             
         </ul>
         <ul class="details">
             <li><button id="info">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                </svg>
+                <span class="material-icons-outlined">info</span>
                 <span class="tooltip">會議詳細資料</span>
                 </button></li>
 
             <li><button id="people">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M9 13.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zM9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5 5.5 6.57 5.5 8.5 7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm7.04 6.81c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"/>
-                </svg>
+                <span class="material-icons-outlined">people</span>
                 <span class="tooltip">顯示所有參與者</span>
                 </button>
-                <div class="count">6</div>
+                <div id="count">6</div>
             </li>
 
             <li><button id="chat">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M4 4h16v12H5.17L4 17.17V4m0-2c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4zm2 10h8v2H6v-2zm0-3h12v2H6V9zm0-3h12v2H6V6z"/>
-                </svg>
+                <span class="material-icons-outlined">chat</span>
                 <span class="tooltip">與所有參與者進行即時通訊</span>
             </button></li>
 
             <li><button id="category">
-                <svg height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <path d="M0 0h24v24H0V0z" fill="none"/>
-                    <path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/>
-                </svg>
+                <span class="material-icons-outlined">category</span>
                 <span class="tooltip">活動</span>
             </button></li>
 
             <li><button id="lock">
-                <svg enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
-                    <g><rect fill="none" height="24" width="24"/></g>
-                    <g><g><path d="M6,20V10h12v1c0.7,0,1.37,0.1,2,0.29V10c0-1.1-0.9-2-2-2h-1V6c0-2.76-2.24-5-5-5S7,3.24,7,6v2H6c-1.1,0-2,0.9-2,2v10 c0,1.1,0.9,2,2,2h6.26c-0.42-0.6-0.75-1.28-0.97-2H6z M9,6c0-1.66,1.34-3,3-3s3,1.34,3,3v2H9V6z"/>
-                        <path d="M18,13c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S20.76,13,18,13z M18,15c0.83,0,1.5,0.67,1.5,1.5S18.83,18,18,18 s-1.5-0.67-1.5-1.5S17.17,15,18,15z M18,21c-1.03,0-1.94-0.52-2.48-1.32C16.25,19.26,17.09,19,18,19s1.75,0.26,2.48,0.68 C19.94,20.48,19.03,21,18,21z"/>
-                    </g></g>
-                </svg>
+                <span class="material-icons-outlined">lock_person</span>
                 <span class="tooltip">主辦人控制項</span>
             </button></li>
         </ul>
     </footer>
-    </div>
 </body>

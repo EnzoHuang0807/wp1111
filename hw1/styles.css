@@ -2,53 +2,54 @@
 html,
 body {
     height: 100%;
+    min-height: 450px;
     margin: 0;
-    overflow: auto;
     background: rgb(32, 33, 36);
 }
 
-.root {
-    margin: 0 auto;
-    width: 97%;
-    height: 97%;
+.top {
+    height: 90%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    padding: 1em;
+}
+
+.material-icons-outlined, .material-icons{
+    color: #FFF;
+    cursor: pointer;
 }
 
 .anchor {
-    box-sizing: border-box;
     width: 65%;
-    height:85%;
+    min-width: 360px;
+    height:90%;
     position: relative;
 }
 
-.anchor .mute {
+.anchor #mute {
+    font-size: 18px;
     position: absolute;
-    left: 100%;
-    transform: translate(-40px ,10px);
+    top: 0%; left: 100%;
+    transform: translate(-40px ,20px);
 }
 
-.anchor .pin {
+.anchor #pin {
     position: absolute;
     top: 100%;
     transform: translate(10px , -20px);
 }
 
-.anchor span {
+.anchor .you {
     position: absolute;
     top: 100%;
     transform: translate(40px , -20px);
     color: white;
     font-family: Arial, sans-serif;
-    text-align: center;
 }
 
 .anchor img {
     width: 20%;
+    min-width: 100px;
     height: auto;
     position: absolute;
     top: 50%; left: 50%;
@@ -56,8 +57,9 @@ body {
 }
 
 .anchor .toolbar {
-    width: 125px;
-    height: 36px;
+    width: 15%;
+    min-width: 90px;
+    height: 8%;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50% , -50%);
@@ -69,11 +71,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     visibility: hidden;
-    opacity: 0.6;
-}
-
-.anchor .fullscreen{
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .anchor:hover .toolbar{
@@ -86,13 +84,22 @@ body {
 
 .audience {
     box-sizing: border-box;
-    width: 32%;
-    height: 85%;
+    width: 32%; height: 90%;
+    min-width: 300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-evenly;
+}
+
+.audience .person {
+    box-sizing: border-box;
+    width: 45%; height: 30%;
+    max-height: 250px;
+    background: rgb(67,70,73);
+    border-radius: 5%;
+    position: relative;
 }
 
 .audience .mute {
@@ -111,41 +118,31 @@ body {
 }
 
 
-.audience .person {
-    box-sizing: border-box;
-    width: 45%;
-    height: 30%;
-    background: rgb(67,70,73);
-    border-radius: 5%;
-    position: relative;
-}
-
 .audience #five {
     width: 60%;
 }
 
 .audience img {
     width: 35%;
+    min-width: 45px;
     height: auto;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.audience span {
+.audience .name {
     position: absolute;
     top: 90%;
-    transform: translate(10% , -50%);
+    transform: translate(10% , -55%);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    font-size: small;
+    font-size: 14px;
 }
 
 .footer {
-    width: 100%;
-    height: 2em;
-    padding: 1em;
+    height: 8%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -153,14 +150,13 @@ body {
 }
 
 .timestamp {
+    font-size: auto;
     margin-left: 1%;
+    width: 20%;
 }
 
 .control-buttons {
     padding: 0;
-    width: 20em;
-    margin-right: 1%;
-    margin-left: 1%;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -170,25 +166,27 @@ body {
 
 
 .checkbox {
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     margin: 4px;
     background: rgb(67,70,73);
     border-radius: 50%;
     position: relative;
 }
 
+.checkbox #mute, .checkbox #unmute{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .checkbox label{
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border-radius: 50%;
     background: rgb(67,70,73);
     transition: all 0.3s ease;
     cursor: pointer;
     position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
+    left: 0px; top: 0px;
 }
 
 .checkbox input[type="checkbox"] {
@@ -199,24 +197,17 @@ body {
     background: rgb(234,80,68);
 }
 
-.checkbox input[type="checkbox"] + label  .mute{
+.checkbox input[type="checkbox"] + label  #mute{
     visibility: hidden;
 }
 
-.checkbox input[type="checkbox"]:checked + label  .mute{
+.checkbox input[type="checkbox"]:checked + label  #mute{
     visibility: visible;
-}
-
-.checkbox label svg {
-    position: absolute;
-    left: 8px;
-    top: 8px;
 }
 
 .control-buttons button {
     box-sizing: border-box;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border: 0;
     margin: 4px;
     background: rgb(67,70,73);
@@ -242,9 +233,7 @@ body {
 
 .details {
     margin-right: 1%;
-    margin-left: 1%;
     padding: 0;
-    width: 15em;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -255,8 +244,7 @@ body {
 
 .details button {
     box-sizing: border-box;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     margin: 4px;
     border: 0;
     background: rgb(32, 33, 36);
@@ -277,7 +265,7 @@ body {
     width: max-content;
     background-color: rgb(62,64,68);
     overflow-wrap:unset;
-    padding: 15px, 0;
+    padding: 15px, 0px;
     color: #fff;
     text-align: center;
     border-radius: 5%;
@@ -299,9 +287,10 @@ body {
 
 #tool {
     position: absolute;
-    left: -50px;  
-    top: -5px; 
+    left: -15px;
+    top: -25px;  
 }
+
 
 label:hover .tooltip {
     visibility: visible;
@@ -320,7 +309,7 @@ button:hover .tooltip {
     visibility: visible;
 }
 
-.count{
+#count{
     box-sizing: border-box;
     width: 18px;
     height: 18px;
@@ -328,8 +317,7 @@ button:hover .tooltip {
     background: rgb(95,99,104);
     color: white;
     position: absolute;
-    top: 0px;
-    left: 75px;
+    top: -5px; left: 75px;
     font-family: Arial, sans-serif;
     text-align: center;
 }
