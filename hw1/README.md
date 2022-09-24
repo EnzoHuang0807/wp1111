@@ -26,8 +26,8 @@ Setting height/width in percentage allows the elements to change their size alon
 
 #### Media Queries
 
-Using `@media` rule to apply different sizes of Google material icons and buttons when the maximum width of the window changes.
+Using `@media` rule to apply different size of Google material icons and buttons when the maximum width of the window changes.
 
-#### min-width
+#### min-width / min-height
 
 When the width or height of the window is shrinked to a certain point, `min-width` prevents the elements from shrinking.
