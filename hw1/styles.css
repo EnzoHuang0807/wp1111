@@ -7,7 +7,7 @@ body {
     background: rgb(32, 33, 36);
 }
 
-.top {
+.main {
     height: 90%;
     display: flex;
     flex-direction: row;
@@ -21,7 +21,7 @@ body {
 
 .anchor {
     width: 65%;
-    min-width: 360px;
+    min-width: 330px;
     height:90%;
     position: relative;
 }
@@ -39,11 +39,11 @@ body {
     transform: translate(10px , -20px);
 }
 
-.anchor .you {
+.anchor #you {
     position: absolute;
     top: 100%;
     transform: translate(40px , -20px);
-    color: white;
+    color: #FFF;
     font-family: Arial, sans-serif;
 }
 
@@ -60,6 +60,7 @@ body {
     width: 15%;
     min-width: 90px;
     height: 8%;
+    min-height: 34px;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50% , -50%);
@@ -67,12 +68,18 @@ body {
     border-radius: 100px;
     flex-direction: row;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     visibility: hidden;
     opacity: 0.5;
 }
+
+
+.item {
+    height: 24px;
+    position: relative;
+}
+
 
 .anchor:hover .toolbar{
     visibility: visible;
@@ -85,7 +92,7 @@ body {
 .audience {
     box-sizing: border-box;
     width: 32%; height: 90%;
-    min-width: 300px;
+    min-width: 170px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -150,7 +157,6 @@ body {
 }
 
 .timestamp {
-    font-size: auto;
     margin-left: 1%;
     width: 20%;
 }
@@ -280,11 +286,6 @@ body {
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.item {
-    height: 24px;
-    position: relative;
-}
-
 #tool {
     position: absolute;
     left: -15px;
@@ -321,3 +322,80 @@ button:hover .tooltip {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+
+@media (max-width: 700px) {
+    
+    span.material-icons-outlined, span.material-icons{
+        font-size: 21px;
+    }
+
+    .item{
+        height: 21px;
+    }
+
+    .control-buttons button, .checkbox, .details button{
+        height: 35px; width: 35px;
+        margin: 3.5px;
+    }
+
+    .control-buttons #leave {
+        width: 49px;
+    }
+
+    .checkbox label{
+        height: 35px; width: 35px;
+    }
+
+    .timestamp {
+        font-size: 14px;
+    }
+
+    .audience .name {
+        font-size: 13px;
+    }
+
+    #count {
+        left: 70px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    
+    span.material-icons-outlined, span.material-icons{
+        font-size: 18px;
+    }
+
+    .control-buttons button, .checkbox, .details button{
+        height: 30px; width: 30px;
+        margin: 3px;
+    }
+
+    .item{
+        height: 18px;
+    }
+
+    .control-buttons #leave {
+        width: 42px;
+    }
+
+    .checkbox label{
+        height: 30px; width: 30px;
+    }
+
+    .timestamp {
+        font-size: 10px;
+    }
+
+    .audience .name {
+        font-size: 12px;
+    }
+
+    #count {
+        left: 60px;
+        width: 15px; height: 15px;
+        font-size: 14px;
+    }
+}
+
+
