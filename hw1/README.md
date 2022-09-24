@@ -10,7 +10,7 @@
 
 3. Footer contains time, meeting name, several function buttons and information buttons.
 
-4. Toolbar would appear when hovering on the main screen. The opacity decreases as we hover on the toolbar. 
+4. Toolbar would appear when hovering on the main screen. The opacity increases as we hover on the toolbar. 
 
 ### Tooltip
 Tooltips would appear when hovering on function buttons
