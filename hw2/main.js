@@ -6,6 +6,9 @@ var audience = document.getElementsByClassName("audience")[0];
 
 //Prepare a list of audience
 var cnt = prompt("Enter a number (1 ~ 15)") - 1;
+if (!(0 <= cnt && cnt <= 14))
+  cnt = 14;
+
 var list = ["老皮", "BMO", "泡泡糖公主", "冰霸王", "阿鵝", "腫泡泡公主", 
     "薄荷糖管家", "艾薇爾", "彩虹姐姐", "檸檬公爵", "火焰公主", "糖果人",
     "蝸牛", "寶妹"];
@@ -51,6 +54,7 @@ var purge = function(person){
   anchored = true;
   cnt--;
 }
+
 //Audience arrangement
 var audience_arrange = function(){
   if (anchored){
@@ -187,11 +191,14 @@ button.addEventListener("click",
     audience_arrange();
   })
 
-
 //Update time function
 var update_time = function(){
   var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes()
+  var time = today.getHours() + ":" + today.getMinutes();
+
+  if (today.getMinutes() < 10)
+    var time = today.getHours() + ":0" + today.getMinutes();
+
   document.getElementsByClassName("timestamp")[0].textContent = 
     time + " | Web Programming"; 
   setTimeout(update_time, 1000);
