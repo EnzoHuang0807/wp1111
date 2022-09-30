@@ -116,7 +116,6 @@ span.material-icons-outlined, span.material-icons{
     align-content: center;
 }
 
-
 .audience #five {
     width: 60%;
 }
@@ -310,7 +309,7 @@ button:hover .tooltip {
 }
 
 @media (max-width: 840px) {
-    
+
     span.material-icons-outlined, span.material-icons{
         font-size: 24px;
     }
