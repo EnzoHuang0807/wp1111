@@ -296,8 +296,8 @@ button:hover .tooltip {
 
 #count{
     box-sizing: border-box;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: rgb(95,99,104);
     color: white;
@@ -305,7 +305,7 @@ button:hover .tooltip {
     top: -1px; left: 100px;
     font-family: Arial, sans-serif;
     text-align: center;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 @media (max-width: 840px) {
@@ -337,6 +337,8 @@ button:hover .tooltip {
 
     #count {
         left: 80px;
+        width: 18px; height: 18px;
+        font-size: 17px;
     }
 
 }
