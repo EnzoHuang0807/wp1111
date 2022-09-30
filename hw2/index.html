@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <title>Google Meet</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1">
+</head>
+
+<body>
+    <div class="main">
+        <div class="anchor">
+
+            <div class="person" id="finn">
+
+                <div class="mute">  
+                    <span class="material-icons" style="font-size: 18px">mic_off</span>
+                </div>
+
+                <img class="profile" src="./images/finn.png">
+                <span class="name">阿寶（你）</span>
+
+                <div class="toolbar">
+                    <span class="material-icons">push_pin</span>
+                    <span class="material-icons">grid_view</span>
+                    <span class="material-icons">close_fullscreen</span>
+                </div>
+
+                <span class="material-icons cancel">cancel</span>
+            </div>
+
+            <span class="material-icons" id="pin">push_pin</span>
+        </div>
+
+        <div class="audience">
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <span class="timestamp" style="color: #FFF; font-family: Arial, Helvetica, sans-serif;"></span>
+
+        <ul class="control-buttons">
+            <li>
+                <div class="checkbox">
+
+                    <input type="checkbox" id="microphone">
+                    <label for="microphone">
+                    <span class="material-icons" id="unmute" style="font-size: 30px">mic</span>
+                    <span class="material-icons" id="mute" style="font-size: 30px">mic_off</span>
+                    <span class="tooltip" id="on">開啟麥克風 (Ctrl + D)</span>
+                    <span class="tooltip" id="off">關閉麥克風 (Ctrl + D)</span>
+                    </label>
+                    
+                </div>
+            </li>
+            
+            <li><button id="camera">
+                <span class="material-icons-outlined" style="font-size: 30px">videocam_off</span>
+                <span class="tooltip">開啟攝影機 (Ctrl + E)</span>
+                </button></li>
+
+            <li><button id="raise">
+                <span class="material-icons-outlined" style="font-size: 30px">back_hand</span>
+                <span class="tooltip">舉手</span>
+            </button></li>
+
+            <li><button id="share-screen">
+                <span class="material-icons" style="font-size: 30px">present_to_all</span>
+                <span class="tooltip">立即分享螢幕畫面</span>
+            </button></li>
+
+            <li><button id="more">
+                <span class="material-icons" style="font-size: 30px">more_vert</span>
+                <span class="tooltip">更多選項</span>
+            </button></li>
+
+            <li><button id="leave">
+                <span class="material-icons" style="font-size: 30px">call_end</span>
+                <span class="tooltip">退出通話</span>
+            </button></li>
+
+            <li><button id="add">
+                <span class="material-icons" style="font-size: 30px">add_circle</span>
+                <span class="tooltip">增加成員</span>
+            </button></li>
+            
+        </ul>
+        <ul class="details">
+            <li><button id="info">
+                <span class="material-icons-outlined" style="font-size: 30px">info</span>
+                <span class="tooltip">會議詳細資料</span>
+                </button></li>
+
+            <li><button id="people">
+                <span class="material-icons-outlined" style="font-size: 30px">people</span>
+                <span class="tooltip">顯示所有參與者</span>
+                </button>
+            </li>
+
+            <li><button id="chat">
+                <span class="material-icons-outlined" style="font-size: 30px">chat</span>
+                <span class="tooltip">與所有參與者進行即時通訊</span>
+            </button></li>
+
+            <li><button id="category">
+                <span class="material-icons-outlined" style="font-size: 30px">category</span>
+                <span class="tooltip">活動</span>
+            </button></li>
+
+            <li><button id="lock">
+                <span class="material-icons-outlined" style="font-size: 30px">lock_person</span>
+                <span class="tooltip">主辦人控制項</span>
+            </button></li>
+        </ul>
+    </footer>
+    <script src="main.js"></script>
+</body>

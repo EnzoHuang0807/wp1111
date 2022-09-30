@@ -1,0 +1,325 @@
+
+html,
+body {
+    height: 100%;
+    min-height: 450px;
+    min-width: 1080px;
+    margin: 0;
+    background: rgb(32, 33, 36);
+}
+
+.main {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.material-icons-outlined, .material-icons{
+    color: #FFF;
+    cursor: pointer;
+}
+
+.anchor {
+    width: 60%;
+    height:90%;
+    position: relative;
+}
+
+
+.anchor #pin {
+    position: absolute;
+    top: 100%;
+    transform: translate(10px , -20px);
+}
+
+.anchor .mute {
+    position: absolute;
+    top: 0%; left: 100%;
+    transform: translate(-60px ,20px);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgb(32, 33, 36);
+    text-align: center;
+}
+
+.anchor .name {
+    position: absolute;
+    top: 100%;
+    transform: translate(40px , -20px);
+    color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+.anchor img {
+    width: 20%;
+    max-width: 200px;
+    border-radius: 50%;
+    height: auto;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.anchor .cancel , #finn .cancel{
+    display: none;
+}
+
+.toolbar {
+    width: 125px;
+    height: 36px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50% , -50%);
+    background: rgb(67,70,73);
+    border-radius: 100px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0.5;
+}
+
+.person:hover .toolbar, .anchor:hover .toolbar{
+    visibility: visible;
+}
+
+.toolbar:hover{
+    opacity: 0.8;
+} 
+
+.audience::-webkit-scrollbar {
+    width: 10px;
+}
+   
+.audience::-webkit-scrollbar-thumb {
+    background-color: rgb(62,64,68);
+    border-radius: 200px;
+}
+
+.audience {
+    box-sizing: border-box;
+    width: 35%; height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+.audience .person {
+    box-sizing: border-box;
+    width: 45%; height: 30%;
+    margin-top: 15px; margin-right: 15px;
+    max-height: 250px;
+    background: rgb(67,70,73);
+    border-radius: 5%;
+    position: relative;
+}
+
+.audience .mute {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 100%;
+    transform: translate(-120% , 20%);
+    border-radius: 50%;
+    background: rgb(62,64,68);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.audience img {
+    width: 35%;
+    min-width: 70px;
+    height: auto;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.audience .name {
+    position: absolute;
+    top: 90%;
+    transform: translate(10px , -50%);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.audience .cancel {
+    position: absolute;
+    top: 5%; left: 5%;
+    color: rgb(234,80,68);
+}
+
+.footer {
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timestamp {
+    margin-left: 2%;
+    width: 20%;
+}
+
+.control-buttons {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.checkbox {
+    width: 50px; height: 50px;
+    margin: 5px;
+    background: rgb(67,70,73);
+    border-radius: 50%;
+    position: relative;
+}
+
+.checkbox #mute, .checkbox #unmute{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox label{
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: rgb(67,70,73);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 0px; top: 0px;
+}
+
+.checkbox input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.checkbox input[type="checkbox"]:checked + label {
+    background: rgb(234,80,68);
+}
+
+.checkbox input[type="checkbox"] + label  #mute{
+    visibility: hidden;
+}
+
+.checkbox input[type="checkbox"]:checked + label  #mute{
+    visibility: visible;
+}
+
+.control-buttons button {
+    box-sizing: border-box;
+    width: 50px; height: 50px;
+    border: 0;
+    margin: 5px;
+    background: rgb(67,70,73);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+
+.control-buttons #camera {
+    background: rgb(234,80,68);
+}
+
+.control-buttons #leave {
+    width: 70px;
+    border-radius: 100px;
+    background: rgb(234,80,68);
+}
+
+.details {
+    margin-right: 2%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.details button {
+    box-sizing: border-box;
+    width: 50px; height: 50px;
+    margin: 5px;
+    border: 0;
+    background: rgb(32, 33, 36);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.details button:hover {
+    background: rgb(62,64,68);
+}
+    
+.tooltip {
+    visibility: hidden;
+    width: max-content;
+    background-color: rgb(62,64,68);
+    overflow-wrap:unset;
+    padding: 15px, 0px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5%;
+    position: absolute;
+    top: -25px;
+    font-size: 14px;
+}
+
+.tooltip#on, .tooltip#off {
+    left: -30px;
+}
+
+label:hover .tooltip {
+    visibility: visible;
+} 
+
+input:checked + label:hover #off {
+    visibility: hidden;
+} 
+
+  
+button:hover .tooltip {
+    visibility: visible;
+}
+
+.item:hover .tooltip {
+    visibility: visible;
+}
+
+#count{
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgb(95,99,104);
+    color: white;
+    position: absolute;
+    top: -5px; left: 75px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
