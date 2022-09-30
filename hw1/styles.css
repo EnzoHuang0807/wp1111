@@ -3,6 +3,7 @@ html,
 body {
     height: 100%;
     min-height: 450px;
+    min-width: 625px;
     margin: 0;
     background: rgb(32, 33, 36);
 }
@@ -14,14 +15,14 @@ body {
     align-items: center;
 }
 
-.material-icons-outlined, .material-icons{
+span.material-icons-outlined, span.material-icons{
+    font-size: 30px;
     color: #FFF;
     cursor: pointer;
 }
 
 .anchor {
     width: 65%;
-    min-width: 330px;
     height:90%;
     position: relative;
 }
@@ -30,19 +31,19 @@ body {
     font-size: 18px;
     position: absolute;
     top: 0%; left: 100%;
-    transform: translate(-40px ,20px);
+    transform: translate(-50px ,20px);
 }
 
 .anchor #pin {
     position: absolute;
     top: 100%;
-    transform: translate(10px , -20px);
+    transform: translate(20px , -20px);
 }
 
 .anchor #you {
     position: absolute;
     top: 100%;
-    transform: translate(40px , -20px);
+    transform: translate(60px , -20px);
     color: #FFF;
     font-family: Arial, sans-serif;
 }
@@ -50,6 +51,7 @@ body {
 .anchor img {
     width: 20%;
     min-width: 100px;
+    border-radius: 50%;
     height: auto;
     position: absolute;
     top: 50%; left: 50%;
@@ -57,10 +59,8 @@ body {
 }
 
 .anchor .toolbar {
-    width: 15%;
-    min-width: 90px;
-    height: 8%;
-    min-height: 34px;
+    width: 125px;
+    height: 36px;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50% , -50%);
@@ -74,13 +74,6 @@ body {
     opacity: 0.5;
 }
 
-
-.item {
-    height: 24px;
-    position: relative;
-}
-
-
 .anchor:hover .toolbar{
     visibility: visible;
 }
@@ -91,8 +84,7 @@ body {
 
 .audience {
     box-sizing: border-box;
-    width: 32%; height: 90%;
-    min-width: 170px;
+    width: 35%; height: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -131,8 +123,9 @@ body {
 
 .audience img {
     width: 35%;
-    min-width: 45px;
+    min-width: 60px;
     height: auto;
+    border-radius: 50%;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -141,11 +134,11 @@ body {
 .audience .name {
     position: absolute;
     top: 90%;
-    transform: translate(10% , -55%);
+    transform: translate(15% , -55%);
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .footer {
@@ -157,7 +150,7 @@ body {
 }
 
 .timestamp {
-    margin-left: 1%;
+    margin-left: 2%;
     width: 20%;
 }
 
@@ -172,8 +165,8 @@ body {
 
 
 .checkbox {
-    width: 40px; height: 40px;
-    margin: 4px;
+    width: 50px; height: 50px;
+    margin: 5px;
     background: rgb(67,70,73);
     border-radius: 50%;
     position: relative;
@@ -186,7 +179,7 @@ body {
 }
 
 .checkbox label{
-    width: 40px; height: 40px;
+    width: 50px; height: 50px;
     border-radius: 50%;
     background: rgb(67,70,73);
     transition: all 0.3s ease;
@@ -213,9 +206,9 @@ body {
 
 .control-buttons button {
     box-sizing: border-box;
-    width: 40px; height: 40px;
+    width: 50px; height: 50px;
     border: 0;
-    margin: 4px;
+    margin: 5px;
     background: rgb(67,70,73);
     border-radius: 50%;
     cursor: pointer;
@@ -232,13 +225,13 @@ body {
 }
 
 .control-buttons #leave {
-    width: 56px;
+    width: 70px;
     border-radius: 100px;
     background: rgb(234,80,68);
 }
 
 .details {
-    margin-right: 1%;
+    margin-right: 2%;
     padding: 0;
     list-style: none;
     display: flex;
@@ -250,8 +243,8 @@ body {
 
 .details button {
     box-sizing: border-box;
-    width: 40px; height: 40px;
-    margin: 4px;
+    width: 50px; height: 50px;
+    margin: 5px;
     border: 0;
     background: rgb(32, 33, 36);
     border-radius: 50%;
@@ -276,8 +269,8 @@ body {
     text-align: center;
     border-radius: 5%;
     position: absolute;
-    top: -20px;
-    font-size: 5px;
+    top: -30px;
+    font-size: 14px;
 }
 
 #on , #off {
@@ -286,13 +279,6 @@ body {
     font-family:Arial, Helvetica, sans-serif;
 }
 
-#tool {
-    position: absolute;
-    left: -15px;
-    top: -25px;  
-}
-
-
 label:hover .tooltip {
     visibility: visible;
 } 
@@ -300,7 +286,6 @@ label:hover .tooltip {
 input:checked + label:hover #off {
     visibility: hidden;
 } 
-
   
 button:hover .tooltip {
     visibility: visible;
@@ -318,19 +303,49 @@ button:hover .tooltip {
     background: rgb(95,99,104);
     color: white;
     position: absolute;
-    top: -5px; left: 75px;
+    top: -1px; left: 100px;
     font-family: Arial, sans-serif;
     text-align: center;
+    font-size: 17px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 840px) {
+    
+    span.material-icons-outlined, span.material-icons{
+        font-size: 24px;
+    }
+
+    .control-buttons button, .checkbox, .details button{
+        height: 40px; width: 40px;
+        margin: 4px;
+    }
+
+    .control-buttons #leave {
+        width: 56px;
+    }
+
+    .checkbox label{
+        height: 40px; width: 40px;
+    }
+
+    .timestamp {
+        font-size: 18px;
+    }
+
+    .audience .name {
+        font-size: 14px;
+    }
+
+    #count {
+        left: 80px;
+    }
+
+}
+
+@media (max-width: 710px) {
     
     span.material-icons-outlined, span.material-icons{
         font-size: 21px;
-    }
-
-    .item{
-        height: 21px;
     }
 
     .control-buttons button, .checkbox, .details button{
@@ -347,52 +362,11 @@ button:hover .tooltip {
     }
 
     .timestamp {
-        font-size: 14px;
-    }
-
-    .audience .name {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     #count {
         left: 70px;
-    }
-
-}
-
-@media (max-width: 600px) {
-    
-    span.material-icons-outlined, span.material-icons{
-        font-size: 18px;
-    }
-
-    .control-buttons button, .checkbox, .details button{
-        height: 30px; width: 30px;
-        margin: 3px;
-    }
-
-    .item{
-        height: 18px;
-    }
-
-    .control-buttons #leave {
-        width: 42px;
-    }
-
-    .checkbox label{
-        height: 30px; width: 30px;
-    }
-
-    .timestamp {
-        font-size: 10px;
-    }
-
-    .audience .name {
-        font-size: 12px;
-    }
-
-    #count {
-        left: 60px;
         width: 15px; height: 15px;
         font-size: 14px;
     }
