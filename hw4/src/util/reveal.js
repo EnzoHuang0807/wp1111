@@ -33,6 +33,9 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
         if (b + j < 0 || b + j >= boardSize)
           continue;
 
+        if (board[a + i][b + j].flagged == true) 
+          continue;
+
         if (board[a + i][b + j].value == 0 && board[a + i][b + j].revealed == false){
             tmp.push([a + i, b + j])
         }

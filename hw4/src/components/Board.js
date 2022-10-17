@@ -20,7 +20,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
     const [nonMineCount, setNonMineCount] = useState(0);        // An integer variable to store the number of cells whose value are not '💣'.
     const [mineLocations, setMineLocations] = useState([]);     // An array to store all the coordinate of '💣'.
     const [gameOver, setGameOver] = useState(false);            // A boolean variable. If true, means you lose the game (Game over).
-    const [remainFlagNum, setRemainFlagNum] = useState(mineNum);      // An integer variable to store the number of remain flags.
+    const [remainFlagNum, setRemainFlagNum] = useState(0);      // An integer variable to store the number of remain flags.
     const [win, setWin] = useState(false);                      // A boolean variable. If true, means that you win the game.
 
     useEffect(() => {
@@ -37,6 +37,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         setBoard(newBoard.board);
         setMineLocations(newBoard.mineLocations);
         setNonMineCount( (boardSize * boardSize) -  newBoard.mineLocations.length);
+        setRemainFlagNum(newBoard.mineLocations.length);
     }
 
     const restartGame = () => {
@@ -87,7 +88,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
 
         if (a.indexOf(b) != -1){
             setGameOver(true);
-            newBoard[x][y].revealed = true;
+            mineLocations.map(r => newBoard[r[0]][r[1]].revealed = true);
         }
 
         else{
@@ -108,6 +109,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
             <div className='boardWrapper'>
 
                 {/* Advanced TODO: Implement Modal based on the state of `gameOver` */}
+                {gameOver? <Modal restartGame={restartGame} backToHome={backToHome} win={win} /> : <></>}
 
                 {/* Basic TODO: Implement Board 
                 Useful Hint: The board is composed of BOARDSIZE*BOARDSIZE of Cell (2-dimention). So, nested 'map' is needed to implement the board.

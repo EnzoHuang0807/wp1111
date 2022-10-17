@@ -26,6 +26,7 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
 
   useEffect(() => {
     setSTime(time);
+    setTime(0);
   }, [gameOver]);
 
 
