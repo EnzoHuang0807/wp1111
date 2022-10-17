@@ -20,7 +20,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
     const [nonMineCount, setNonMineCount] = useState(0);        // An integer variable to store the number of cells whose value are not '💣'.
     const [mineLocations, setMineLocations] = useState([]);     // An array to store all the coordinate of '💣'.
     const [gameOver, setGameOver] = useState(false);            // A boolean variable. If true, means you lose the game (Game over).
-    const [remainFlagNum, setRemainFlagNum] = useState(0);      // An integer variable to store the number of remain flags.
+    const [remainFlagNum, setRemainFlagNum] = useState(mineNum);      // An integer variable to store the number of remain flags.
     const [win, setWin] = useState(false);                      // A boolean variable. If true, means that you win the game.
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
 
         setBoard(newBoard.board);
         setMineLocations(newBoard.mineLocations);
-        setNonMineCount( (boardSize ^ 2) -  newBoard.mineLocations.length);
+        setNonMineCount( (boardSize * boardSize) -  newBoard.mineLocations.length);
     }
 
     const restartGame = () => {
@@ -91,10 +91,13 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         }
 
         else{
-            revealed(newBoard, x, y, nonMineCount);
+            let result = revealed(newBoard, x, y, nonMineCount, boardSize);
+            setNonMineCount(result.newNonMinesCount);
 
-            if (nonMineCount == 0)
+            if (result.newNonMinesCount == 0){
+                setGameOver(true);
                 setWin(true);
+            }
         }
 
         setBoard(newBoard);
@@ -111,9 +114,10 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
                 Reminder: Remember to use the component <Cell> and <Dashboard>. See Cell.js and Dashboard.js for detailed information. */}
                 <div className="boardContainer">
 
-                    <Dashboard/>
+                    <Dashboard remainFlagNum={remainFlagNum} gameOver={gameOver} />
+
                     { board.map( (r, i) => <div id = {"row" + i} style={{display: 'flex'}}> 
-                    {r.map((c, j) => <Cell rowIdx={i} colIdx={j} detail={c} updateFlag={updateFlag} revealCell={revealCell}/>)} </div>)}
+                    {r.map((c, j) => <Cell rowIdx={i} colIdx={j} detail={c} updateFlag={updateFlag} revealCell={revealCell} />)} </div>)}
 
                 </div>
                 

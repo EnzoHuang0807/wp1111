@@ -7,7 +7,7 @@
 ****************************************************************************/
 
 * {
-    font-family: 'Futura';
+    font-family: 'Arial';
 }
 
 .HomeWrapper {
@@ -21,12 +21,14 @@
     font-family: 'Futura';
     font-weight: 900;
     padding-top: 50px;
+    margin-bottom: 50px;
     color: #0f0f4b;
 }
 
 .btn {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     padding: 10px 30px;
     border: transparent;
     border-radius: 25px;
@@ -60,7 +62,8 @@
 .error {
     width: 100%;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 900;
+    text-align: center;
 }
 
 
@@ -79,11 +82,13 @@
 .controlTitle {
     font-size: 25px;
     color: #0f0f4b;
+    font-weight: 900;
 }
 
 .controlNum {
     font-size: 20px;
     color: #0f0f4b;
+    font-weight: 900;
 }
 
 /* Chrome */

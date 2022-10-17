@@ -18,12 +18,15 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
   {/* Useful Hint: Try to understand the difference between time and sTime. */ }
 
   useEffect(() => {
-    
+    timeIntervalId = setInterval(() => {
+      setTime((time) => time + 1)
+    }, 1000)
+    return () => clearInterval(timeIntervalId);
   }, []);
 
   useEffect(() => {
-
-  }, []);
+    setSTime(time);
+  }, [gameOver]);
 
 
   return (
