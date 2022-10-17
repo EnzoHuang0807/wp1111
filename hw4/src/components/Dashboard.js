@@ -21,8 +21,8 @@ export default function Dashboard({ remainFlagNum, gameOver }) {
     timeIntervalId = setInterval(() => {
       setTime((time) => time + 1)
     }, 1000)
-    return () => clearInterval(timeIntervalId);
-  }, []);
+    return () => {clearInterval(timeIntervalId)};
+  }, [gameOver]);
 
   useEffect(() => {
     setSTime(time);
