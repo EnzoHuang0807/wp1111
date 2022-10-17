@@ -92,10 +92,10 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         }
 
         else{
-            let result = revealed(newBoard, x, y, nonMineCount, boardSize);
-            setNonMineCount(result.newNonMinesCount);
+            let res = revealed(newBoard, x, y, nonMineCount, boardSize);
+            setNonMineCount(res.newNonMinesCount);
 
-            if (result.newNonMinesCount == 0){
+            if (res.newNonMinesCount == 0){
                 setGameOver(true);
                 setWin(true);
             }

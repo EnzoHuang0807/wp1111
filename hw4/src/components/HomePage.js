@@ -21,10 +21,8 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
       setShowPanel(false);
     else {
       setShowPanel(true);
-      if (boardSize * boardSize < mineNum){
-        mineNumOnChange(10);
-        boardSizeOnChange(8);
-      }
+      mineNumOnChange(10);
+      boardSizeOnChange(8);
     }
   }
 
@@ -46,14 +44,14 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, mineNu
       <div className='controlCol'>
         <p className='controlTitle'>Mines Number</p>
         <input className='inputSlider' type='range' min='3' 
-        max = '200' defaultValue='10' onInput={(event) => {mineNumOnChange(event.target.value)}}></input>
+        max = '100' defaultValue='10' onInput={(event) => {mineNumOnChange(event.target.value)}}></input>
         <p className='controlNum' style={numStyle} >{mineNum}</p>
       </div>
 
       <div className='controlCol'>
         <p className='controlTitle'>Board Size (n x n)</p>
         <input className='inputSlider' type='range' min ='3' 
-          max='20' defaultValue ='8' onInput={(event) => {boardSizeOnChange(event.target.value)}}></input>
+          max='15' defaultValue ='8' onInput={(event) => {boardSizeOnChange(event.target.value)}}></input>
           <p className='controlNum' style={numStyle} >{boardSize}</p>
       </div>
 

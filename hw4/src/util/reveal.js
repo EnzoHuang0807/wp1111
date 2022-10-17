@@ -36,17 +36,17 @@ export const revealed = (board, x, y, newNonMinesCount, boardSize) => {
         if (board[a + i][b + j].flagged == true) 
           continue;
 
-        if (board[a + i][b + j].value == 0 && board[a + i][b + j].revealed == false){
-            tmp.push([a + i, b + j])
-        }
+        if (board[a + i][b + j].revealed == false){
 
-        board[a + i][b + j].revealed = true;
-        newNonMinesCount--;
+            if (board[a + i][b + j].value == 0)
+              tmp.push([a + i, b + j])
+
+            board[a + i][b + j].revealed = true;
+            newNonMinesCount--;
+        }
       }
     }
-
     tmp.splice(0, 1);
   }
-
   return { board, newNonMinesCount };
 };
