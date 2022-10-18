@@ -14,14 +14,14 @@ const Row = ({ guess, rowIdx }) => {
     const content = () => {
         if (guess != undefined)
           return(
-            guess.map((s, i) => <div className={'Row-wordbox filled' + s.color} 
+            guess.map((s, i) => <div className={'Row-wordbox ' + s.color} 
             id={rowIdx + "-" + i}>{s.char}</div>)
           );
         
         else{
             let arr = [0, 1, 2, 3, 4];
             return(
-              arr.map((i) => <div className='Row-wordbox filled' 
+              arr.map((i) => <div className='Row-wordbox' 
               id={rowIdx + "-" + i}></div>)
             );
         }

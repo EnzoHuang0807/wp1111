@@ -15,7 +15,7 @@ import React, { useEffect, useState } from 'react';
 
 const Wordle = ({ solution }) => {
     const { turn, curGuess, guesses, isCorrect, usedChars, handleKeyup, printTest } = useWordle(solution);
-    const [ result, setResult ] = useState('"You lose!!!! The answer is "'+ solution + ".");
+    const [ result, setResult ] = useState("You lose!!!! The answer is "+ solution + ".");
     const [ gameOver, setGameOver ] = useState(false);                      // A bool whose default is false. It will be set to turn when the game is ended. 
     const [ win, setWin ] = useState(false);                                // A bool whose default is false. It will be set to turn when the player wins the game. 
 
@@ -27,16 +27,19 @@ const Wordle = ({ solution }) => {
                     // TODO 6: Implementation for the result of the game
                     // Hint: Add some conditions in `useEffect` to maintain `result`, `gameOver`, `win`.
                     // Result format: "You win!!!!"
-                    
-                })
+                    setGameOver(true);
+                    setWin(true);
+                    setResult("You Win !!!!");
+                }, 1000)
             }
             else if (turn > 5) {
                 setTimeout(() => {
                     // TODO 6: Implementation for the result of the game
                     // Hint: Add some conditions in `useEffect` to maintain `result`, `gameOver`, `win`.
                     // Result format: "You lose!!!! The answer is windy." (If the solution is 'windy')
-                    
-                })
+                    setGameOver(true);
+                    setResult("You lose!!!! The answer is "+ solution + ".");
+                }, 1000)
             }
         return () => window.removeEventListener('keyup', handleKeyup);
     }, [handleKeyup])
@@ -45,7 +48,9 @@ const Wordle = ({ solution }) => {
     return (
         <div className='Wordle-container'>
             {/* TODO 6: Implementation for the result of the game */}
-            
+            {gameOver ? (win)? <div className='Wordle-win'>{result}</div> : 
+            <div className='Wordle-lose'>{result}</div>  : 
+            <div className='Worlde-lose Hidden'>{result}</div>}
             
             {/* TODO 2-1:  call `Board` and pass `turn`, `guesses`, `curGuess` into it  */}
             <Board turn={turn} guesses={guesses} curGuess={curGuess} />

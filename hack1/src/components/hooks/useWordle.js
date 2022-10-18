@@ -46,18 +46,49 @@ const useWordle = (solution) => {
         // Hint: check green first, and then check yellow.
 
         // add the formatted guess generated into guesses.
-        
-        // turn += 1
-        
-        // set curGuess to default
 
+        let newGuesses = JSON.parse(JSON.stringify(guesses));
+        let answer = solution.split("");
+        let newGuess = [{char:curGuess[0], color:'grey'},{char:curGuess[1], color:'grey'},{char:curGuess[2], color:'grey'},
+          {char:curGuess[3], color:'grey'},{char:curGuess[4], color:'grey'}];        
+
+        for (let i = 0; i < 5; i++){
+            if (answer[i] == newGuess[i].char){
+                answer[i] = "";
+                newGuess[i].color = 'green';
+            }
+        }
+
+        for (let i = 0; i < 5; i++){
+            if (newGuess[i].color == 'grey'){
+                for (let j = 0; j < 5; j++){
+                    if (answer[j] == newGuess[i].char){
+                        answer[j] = "";
+                        newGuess[i].color = 'yellow';
+                        break;
+                    }
+                }
+            }
+        }
+
+        newGuesses[turn] = newGuess;
+
+        // set curGuess to default
+        setCurGuess("");
+
+        setGuesses(newGuesses);
+        setTurn((turn) => (turn + 1));
 
         // TODO 5: update parameters, check each char usage and show in `Keyboard` and reset `curGuess`.
         // 5-1) check if curGuess === solution, if true, set `isCorrect` to true.
         
-        
+        if (curGuess === solution)
+          setIsCorrect(true);
+
+
         // 5-2) usedChars update
-        
+
+        // setUsedChars((usedChars) => (usedChars[newGuess[0].char] = newGuess[0].color));
         
     }
 

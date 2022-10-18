@@ -27,11 +27,10 @@ const Keyboard = ({ usedChars }) => {
         <div className='Keyboard-container'>
             {/* TODO 1-2: show `firstRowLetters` and `secondRowLetters` */}
             {/* TODO 5: add color to each `Keyboard-char`. */}
-            
 
             <div id='KBrow_1' key='KBrow_1' className='Keyboard-row'>
                 {firstRowLetters && firstRowLetters.map((letter) => {
-                    const color = usedChars[letter.char]
+                    const color = usedChars[letter.char];
                     return (
                         letter.char === 'Enter' ?
                             <div key={'char_' + letter.char} className='Keyboard-char-enter' >{letter.char}</div>
