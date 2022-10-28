@@ -23,13 +23,11 @@ const Keyboard = ({ usedChars }) => {
         setThirdRowLetters(config.letters.slice(19, 29));
     }, [])
     
-    return (
-        <div className='Keyboard-container'>
-            {/* TODO 1-2: show `firstRowLetters` and `secondRowLetters` */}
-            {/* TODO 5: add color to each `Keyboard-char`. */}
 
-            <div id='KBrow_1' key='KBrow_1' className='Keyboard-row'>
-                {firstRowLetters && firstRowLetters.map((letter) => {
+    const genKeyboard = (id, letters) => {
+      return(
+        <div id={id} key={id} className='Keyboard-row'>
+                {letters && letters.map((letter) => {
                     const color = usedChars[letter.char];
                     return (
                         letter.char === 'Enter' ?
@@ -42,36 +40,18 @@ const Keyboard = ({ usedChars }) => {
                     )
                 })}
             </div>
+      )
+    }
 
-            <div id='KBrow_2' key='KBrow_2' className='Keyboard-row'>
-                {secondRowLetters && secondRowLetters.map((letter) => {
-                    const color = usedChars[letter.char]
-                    return (
-                        letter.char === 'Enter' ?
-                            <div key={'char_' + letter.char} className='Keyboard-char-enter' >{letter.char}</div>
-                            :
-                            letter.char === 'Backspace' ?
-                                <div  key={'char_' + letter.char} className='Keyboard-char-backspace'><IoBackspaceOutline /></div>
-                                :
-                                <div id = {'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
-                    )
-                })}
-            </div>
+    return (
+        <div className='Keyboard-container'>
+            {/* TODO 1-2: show `firstRowLetters` and `secondRowLetters` */}
+            {/* TODO 5: add color to each `Keyboard-char`. */}
 
-            <div id='KBrow_3' key='KBrow_3' className='Keyboard-row'>
-                {thirdRowLetters && thirdRowLetters.map((letter) => {
-                    const color = usedChars[letter.char]
-                    return (
-                        letter.char === 'Enter' ?
-                            <div key={'char_' + letter.char} className='Keyboard-char-enter' >{letter.char}</div>
-                            :
-                            letter.char === 'Backspace' ?
-                                <div  key={'char_' + letter.char} className='Keyboard-char-backspace'><IoBackspaceOutline /></div>
-                                :
-                                <div id = {'char_' + letter.char} key={'char_' + letter.char} className={'Keyboard-char ' + color}>{letter.char}</div>
-                    )
-                })}
-            </div>
+            {genKeyboard("KBrow_1", firstRowLetters)}
+            {genKeyboard("KBrow_2", secondRowLetters)}
+            {genKeyboard("KBrow_3", thirdRowLetters)}
+            
         </div>
     )
 }

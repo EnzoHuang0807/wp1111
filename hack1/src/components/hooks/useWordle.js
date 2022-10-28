@@ -49,9 +49,13 @@ const useWordle = (solution) => {
 
         let newGuesses = JSON.parse(JSON.stringify(guesses));
         let answer = solution.split("");
-        let newGuess = [{char:curGuess[0], color:'grey'},{char:curGuess[1], color:'grey'},{char:curGuess[2], color:'grey'},
-          {char:curGuess[3], color:'grey'},{char:curGuess[4], color:'grey'}];        
+        let newGuess = []; 
 
+        // Initialize newGuess
+        for (let i = 0; i < 5; i++)
+            newGuess.push({char:curGuess[i], color:'grey'});
+
+        // 1A2B Algorithm
         for (let i = 0; i < 5; i++){
             if (answer[i] == newGuess[i].char){
                 answer[i] = "";
@@ -85,11 +89,20 @@ const useWordle = (solution) => {
         if (curGuess === solution)
           setIsCorrect(true);
 
-
         // 5-2) usedChars update
+        let newUsedChars = JSON.parse(JSON.stringify(usedChars));
+        for (let i = 0; i < 5; i++){
+            let curChar = newGuess[i].char;
+            let curColor = newGuess[i].color;
 
-        // setUsedChars((usedChars) => (usedChars[newGuess[0].char] = newGuess[0].color));
-        
+            if (newUsedChars[curChar])
+                if (newUsedChars[curChar] == 'green' || 
+                (newUsedChars[curChar] == 'yellow' && curColor != 'green')) continue;
+            
+            newUsedChars[curChar] = curColor;
+        }
+
+        setUsedChars(newUsedChars);
     }
 
     // Handle the action of `Backspace`
