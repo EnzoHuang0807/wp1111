@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import guessRoute from './routes/guess.js'
 const app = express()
-// init middleware dvjeoivrrok
+// init middleware
 app.use(cors())
 // define routes
 app.use('/api/guess', guessRoute)
