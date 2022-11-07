@@ -34,7 +34,6 @@ const deleteDB = async () => {
 
 const queryDB = async (type, string) => {
     try{
-        i = 0/0;
         if (type == "name")
             return await ScoreCard.find({ name : string});
         else
