@@ -1,4 +1,5 @@
 import Message from './models/message'
+import WebSocket from 'ws';
 import { MessageModel, UserModel, ChatBoxModel } from './models/chatbox'
 
 const makeName =
@@ -26,8 +27,12 @@ const sendStatus = (payload, ws) =>
 
 const broadcastMessage = (set, data, status) => {
   set.forEach((client) => {
-    sendData(data, client);
-    sendStatus(status, client);
+    if (client.readyState === WebSocket.CLOSED)
+      set.delete(client)
+    else{
+      sendData(data, client);
+      sendStatus(status, client);
+    }
   });
 };
 
