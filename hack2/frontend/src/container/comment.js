@@ -30,11 +30,20 @@ const Comment = ({ restaurantId, comments, setComments, setLoad }) => {
     const storeComment = async () => {
         await instance.post('createComment/', {
             // TODO Part III-3-b: store the comment to the DB
+            restaurantId : restaurantId,
+            name : name,
+            rating : rating,
+            content : content
         })
     }
 
     const submitComment = () => {
         // TODO Part III-3-b: submit a comment and reset input fields
+        storeComment();
+        setName('')
+        setContent('')
+        setRating(0)
+        setComments([])
     }
     return (
         <div className='commentContainer'>

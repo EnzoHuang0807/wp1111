@@ -38,19 +38,19 @@ const RestaurantPage = () => {
             params: {
                 restaurantId : id
             }})
-        setComments(newComments)
-        console.log(newComments)
+        if (comments.length != newComments.length){
+            setComments(newComments)
+        }
     }
     useEffect(() => {
         if (Object.keys(info).length === 0) {
             getInfo()
         }
-        getComments()
     }, [])
     
     useEffect(() => {
         // TODO Part III-3-c: update the comment display immediately after submission
-        //getComments()
+        getComments()
     }, [comments])
 
 
@@ -59,6 +59,7 @@ const RestaurantPage = () => {
     comments.forEach(element => {
         rating += element.rating
     });
+    if (comments.length != 0)
     rating = rating / comments.length
     
     return (

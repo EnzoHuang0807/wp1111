@@ -33,7 +33,6 @@ const Information = ({ info, rating }) => {
     }
 
     const getBusiness = (time) => {
-        console.log(time)
         
         return (
             <div className='businessTime'>
