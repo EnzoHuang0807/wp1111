@@ -35,6 +35,8 @@ const ChatProvider = (props) => {
 
     switch (task) {
       case "init": {
+        //console.log(payload)
+        setMessages([])
         setMessages(() => [... payload]);
         break;
       }
@@ -43,7 +45,6 @@ const ChatProvider = (props) => {
         break; 
       }
       case "status": {
-        console.log(payload)
         setStatus(payload); 
         break; 
       }

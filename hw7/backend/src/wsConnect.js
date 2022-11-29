@@ -69,7 +69,7 @@ export default {
           
           let data = []
           chatBox.messages.map((m) => (data.push({name: m.sender.name, body: m.body})))
-          const status = { type: 'success', msg: 'Message sent.'}
+          const status = { type: 'success', msg: 'Chat started.'}
           broadcastMessage(chatBoxes[chatName], ["init", data], status)
           break
         }
@@ -78,7 +78,7 @@ export default {
           const {name, to, body} = payload
           const chatName = makeName(name, to)
           let sender = await UserModel.findOne({ name });
-          let box = await ChatBoxModel.findOne({ chatName });
+          let box = await ChatBoxModel.findOne({ name: chatName });
 
           const msg = await new MessageModel({chatBox: box._id, sender:sender._id, body: body}).save();
           await ChatBoxModel.updateOne({ name : chatName }, 
@@ -89,31 +89,6 @@ export default {
           break;
         }
 
-        case 'input': {
-          const { name, body } = payload 
-          const message = new Message({ name, body })
-
-          try { await message.save();
-          } catch (e) { throw new Error ("Message DB save error: " + e); }
-
-          const data = ['output', [payload]]
-          const status = { type: 'success', msg: 'Message sent.'}
-          broadcastMessage(wss, data, status)
-          //sendData(data, ws)
-          //sendStatus(status, ws)
-          break
-        }
-
-        case 'clear': {
-          Message.deleteMany({}, () => {
-            const data = ['cleared']
-            const status = { type: 'info', msg: 'Message cache cleared.'}
-            broadcastMessage(wss, data, status)
-            //sendData(data, ws)
-            //sendStatus(status, ws)
-          })
-          break;
-        }
         default : break
       }
     })

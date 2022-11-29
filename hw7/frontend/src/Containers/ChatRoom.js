@@ -17,7 +17,7 @@ const ChatBoxesWrapper = styled(Tabs)`
 `;
 
 const FootRef = styled.div`
-  height: 20px;
+  height: 40px;
 `;
 
 const ChatRoom = () => {
@@ -41,7 +41,6 @@ const ChatRoom = () => {
     }, [msgSent]);
 
     useEffect(() =>{
-      console.log(messages)
       const index = chatBoxes.findIndex(({key}) => key === activeKey);
 
       if (index >= 0){
@@ -60,11 +59,6 @@ const ChatRoom = () => {
           {chat.map(({ name, body }) => ( <Message isMe={name == me} message={body}/>))}
           <FootRef ref={msgFooter}/>
         </>)
-    }
- 
-    const extractChat = (friend) => {
-      return renderChat(messages.filter
-        (({name, body}) => ((name === friend) || (name === me))));
     }
 
     const createChatBox = (friend) => {
@@ -98,7 +92,6 @@ const ChatRoom = () => {
     return (
         <>
         <Title name={me}/>
-        <>
         <ChatBoxesWrapper
           tabBarStyle={{height: '36px'}}
           type="editable-card"
@@ -106,7 +99,6 @@ const ChatRoom = () => {
           onChange ={(key) => {
             setActiveKey(key);
             startChat(me, key);
-            setMsgSent(true);
           }}
           onEdit ={async (targetKey, action) => {
             if (action === 'add') setModalOpen(true);
@@ -124,7 +116,6 @@ const ChatRoom = () => {
             setActiveKey(createChatBox(name));
             startChat(me, name)
             setModalOpen(false);
-            setMsgSent(true);
           }}
           onCancel={() => { setModalOpen(false);}}
         />
@@ -148,7 +139,6 @@ const ChatRoom = () => {
             setBody('')
         }}
         ></Input.Search>
-        </>
       </>
     );
 }
