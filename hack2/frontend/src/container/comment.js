@@ -39,6 +39,8 @@ const Comment = ({ restaurantId, comments, setComments, setLoad }) => {
 
     const submitComment = () => {
         // TODO Part III-3-b: submit a comment and reset input fields
+        if (!name || !rating || !content)
+          return
         storeComment();
         setName('')
         setContent('')

@@ -34,6 +34,7 @@ const NavBar = () => {
         })
         return clone;
     }
+
     const navigateToSearch = () => {
         setFilterExpanded(false)
         // TODO Part I-1: navigation to search page
@@ -41,14 +42,12 @@ const NavBar = () => {
         // FIXME - Modify below
         navigate('/search', {
             state: {
-                priceFilter: priceFilter,
+                priceFilter: changeDollarSignToInt(),
                 mealFilter: mealFilter,
                 typeFilter: typeFilter,
                 sortBy: sortMethod
             }
         });
-
-        console.log(priceFilter)
 
     };
     return (

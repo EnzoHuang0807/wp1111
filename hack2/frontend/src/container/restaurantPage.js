@@ -38,9 +38,9 @@ const RestaurantPage = () => {
             params: {
                 restaurantId : id
             }})
-        if (comments.length != newComments.length){
-            setComments(newComments)
-        }
+        if (comments.length != newComments.length)
+           setComments(newComments)
+        console.log(newComments)
     }
     useEffect(() => {
         if (Object.keys(info).length === 0) {

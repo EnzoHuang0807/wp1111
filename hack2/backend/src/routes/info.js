@@ -27,11 +27,64 @@ exports.GetSearch = async (req, res) => {
     
 
     // TODO Part I-3-a: find the information to all restaurants
-    //console.log(priceFilter)
+
+    function comparePrice( a, b ) {
+      if ( a.price < b.price ){
+        return -1;
+      }
+      if ( a.price > b.price ){
+        return 1;
+      }
+      return 0;
+    }
+
+    function compareDist( a, b ) {
+      if ( a.distance < b.distance ){
+        return -1;
+      }
+      if ( a.distance > b.distance ){
+        return 1;
+      }
+      return 0;
+    }
+
     Info.find().exec((err, data) => {
         if (err)
           res.status(403).send({ message: 'error', contents: "error" })
-        //res.json(data)
+
+          let index = data.length - 1
+
+          while (index >= 0) {
+            if (priceFilter != undefined && !priceFilter.includes(String(data[index].price))) {
+              data.splice(index, 1);
+            }
+            index -= 1;
+          }
+
+          index = data.length - 1
+
+          while (index >= 0) {
+            if (typeFilter != undefined && !data[index].tag.some(element => (typeFilter.includes(element)))) {
+              data.splice(index, 1);
+            }
+            index -= 1;
+          }
+
+          index = data.length - 1
+
+          while (index >= 0) {
+            if (mealFilter != undefined && !data[index].tag.some(element => (mealFilter.includes(element)))) {
+              data.splice(index, 1);
+            }
+            index -= 1;
+          }
+
+        if (sortBy == 'price')
+          data.sort(comparePrice)
+        else if (sortBy == 'distance')
+          data.sort(compareDist)
+        
+        //console.log(data)
         res.status(200).send({ message: 'success', contents: data })
     })
     
