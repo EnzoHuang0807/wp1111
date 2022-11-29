@@ -13,11 +13,20 @@ const ChatBoxesWrapper = styled(Tabs)`
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
-  overflow: auto;
+  .ant-tabs-content-holder{
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: grey;
+      border-radius: 5px;
+    }
+  }
 `;
 
 const FootRef = styled.div`
-  height: 40px;
+  height: 50px;
 `;
 
 const ChatRoom = () => {
