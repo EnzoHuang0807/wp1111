@@ -30,13 +30,12 @@ const FootRef = styled.div`
 `;
 
 const ChatRoom = () => {
-    const { me, status, displayStatus, messages, sendMessage, startChat } = useChat();
+    const { me, displayStatus, messages, sendMessage, startChat } = useChat();
     const [body, setBody] = useState('')
     const [msgSent, setMsgSent] = useState(false)
     const [chatBoxes, setChatBoxes] = useState([])
     const [activeKey, setActiveKey] = useState('')
     const [modalOpen, setModalOpen] = useState(false)
-    const bodyRef = useRef(null)
     const msgFooter = useRef(null)
 
     const scrollToBottom = () => {
@@ -54,6 +53,7 @@ const ChatRoom = () => {
 
       if (index >= 0){
         let newChatBoxes = chatBoxes;
+        newChatBoxes.map((c) => c.children = [])
         newChatBoxes[index].children = renderChat(messages)
         setChatBoxes(newChatBoxes)
       }
@@ -65,7 +65,8 @@ const ChatRoom = () => {
         
         return(
         <>
-          {chat.map(({ name, body }) => ( <Message isMe={name == me} message={body}/>))}
+          {chat.map(({ name, body }, key) => 
+            ( <Message isMe={name === me} message={body} key={key}/>))}
           <FootRef ref={msgFooter}/>
         </>)
     }
@@ -88,12 +89,14 @@ const ChatRoom = () => {
     const removeChatBox = (targetKey, activeKey) => {
       const index = chatBoxes.findIndex(({key}) => key === activeKey);
       const newChatBoxes = chatBoxes.filter(({key}) => key !== targetKey);
+      const len = newChatBoxes.length;
       setChatBoxes(newChatBoxes);
+
       return (
         activeKey?
           activeKey === targetKey?
-            index === 0?
-            '' : chatBoxes[index - 1].key
+            len === 0?
+            '' : newChatBoxes[(index - 1 >= 0) ? index - 1 : 0].key
           : activeKey
         : '');
     };
@@ -131,7 +134,6 @@ const ChatRoom = () => {
 
         <Input.Search
             value = {body}
-            ref={bodyRef}
             onChange = {(e) => setBody(e.target.value)}
             enterButton="Send"
             placeholder="Type a message here..."

@@ -7,10 +7,13 @@ const savedMe = localStorage.getItem(LOCALSTORAGE_KEY);
 const ChatContext = createContext({
   status: {},
   me: "",
+  setMe: () => {},
   signedIn: false,
+  setSignedIn: () => {},
   messages: [],
   sendMessage: () => {},
-  clearMessages: () => {},
+  startChat: () => {},
+  displayStatus: () => {}
 });
 
 const client = new WebSocket('ws://localhost:4000')
@@ -22,7 +25,7 @@ const ChatProvider = (props) => {
   const [status, setStatus] = useState({});
   const [me, setMe] = useState(savedMe || "");
   const [signedIn, setSignedIn] = useState(false);
-
+  
   useEffect(() => {
     if (signedIn) {
       localStorage.setItem(LOCALSTORAGE_KEY, me);
@@ -35,9 +38,8 @@ const ChatProvider = (props) => {
 
     switch (task) {
       case "init": {
-        //console.log(payload)
         setMessages([])
-        setMessages(() => [... payload]);
+        setMessages(() => [...payload]);
         break;
       }
       case "output": {
@@ -47,10 +49,6 @@ const ChatProvider = (props) => {
       case "status": {
         setStatus(payload); 
         break; 
-      }
-      case "cleared": {
-        setMessages([]);
-        break;
       }
       default: break;
     }
@@ -95,10 +93,6 @@ const ChatProvider = (props) => {
       type: 'MESSAGE',
       payload: {name, to, body}
     });
-   }
-
-  const clearMessages = () => {
-    sendData(["clear"]);
   }
 
   return (

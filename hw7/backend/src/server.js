@@ -16,7 +16,7 @@ const db = mongoose.connection
 db.once('open', () => {
   console.log("MongoDB connected!");
   wss.on('connection', (ws) => {
-    //wsConnect.initData(ws);
+    console.log("ws connected")
     ws.box = '';
     ws.onmessage = wsConnect.onMessage(wss, ws) });
 });
