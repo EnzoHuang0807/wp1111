@@ -6,9 +6,5 @@
   "scripts": {
     "start": "cd frontend && yarn start",
     "server": "cd backend && yarn server"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.12.4",
-    "styled-components": "^5.3.6"
   }
 }
