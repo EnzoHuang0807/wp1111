@@ -13,7 +13,6 @@ type Message {
 }
 
 type Mutation {
-  createChatBox(name1: String, name2: String): ChatBox!
   createMessage(from: String!, to: String!, body: String!): Message!
 }
 

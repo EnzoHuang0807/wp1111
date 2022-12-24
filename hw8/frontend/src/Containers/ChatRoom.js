@@ -26,11 +26,11 @@ const ChatBoxesWrapper = styled(Tabs)`
 `;
 
 const FootRef = styled.div`
-  height: 50px;
+  height: 40px;
 `;
 
 const ChatRoom = () => {
-    const { me, activeKey, setActiveKey, displayStatus, messages, sendMessage, startChat } = useChat();
+    const { me, activeKey, setActiveKey, displayStatus, messages, sendMessage } = useChat();
     const [body, setBody] = useState('')
     const [msgSent, setMsgSent] = useState(false)
     const [chatBoxes, setChatBoxes] = useState([])
@@ -53,9 +53,8 @@ const ChatRoom = () => {
       if (index >= 0){
         let newChatBoxes = [];
         chatBoxes.map((c) => newChatBoxes.push({
-          label: c.label, 
-          children: [],
-          key: c.key }))
+          label: c.label, children: [], key: c.key }))
+
         newChatBoxes[index].children = renderChat(messages)
         setChatBoxes(newChatBoxes)
       }
@@ -117,7 +116,7 @@ const ChatRoom = () => {
           onEdit ={async (targetKey, action) => {
             if (action === 'add') setModalOpen(true);
             else if (action === 'remove') {
-              let key = removeChatBox(targetKey, activeKey);
+              const key = removeChatBox(targetKey, activeKey);
               setActiveKey(key);
               setMsgSent(true);
             }
@@ -131,7 +130,7 @@ const ChatRoom = () => {
             setModalOpen(false);
             setMsgSent(true);
           }}
-          onCancel={() => { setModalOpen(false);}}
+          onCancel={() => { setModalOpen(false); }}
         />
 
         <Input.Search
@@ -147,11 +146,17 @@ const ChatRoom = () => {
               })
             return
             }
+
             sendMessage({ variables: {
               from: me,
               to: activeKey,
               body: msg
             } })
+            displayStatus({
+              type: 'success',
+              msg: 'Message sent.'
+            })
+
             setMsgSent(true);
             setBody('')
         }}

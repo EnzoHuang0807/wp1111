@@ -1,13 +1,12 @@
 import {useState, useEffect, createContext, useContext } from 'react'
 import { message } from 'antd'
 import { useQuery, useMutation } from "@apollo/client";
-import { CHATBOX_QUERY, CREATE_CHATBOX_MUTATION, CREATE_MESSAGE_MUTATION, MESSAGE_SUBSCRIPTION } from "../../graphql";
+import { CHATBOX_QUERY, CREATE_MESSAGE_MUTATION, MESSAGE_SUBSCRIPTION } from "../../graphql";
 
 const LOCALSTORAGE_KEY = "save-me";
 const savedMe = localStorage.getItem(LOCALSTORAGE_KEY);
 
 const ChatContext = createContext({
-  status: {},
   me: "",
   setMe: () => {},
   activeKey: "",
@@ -22,7 +21,6 @@ const ChatContext = createContext({
 
 const ChatProvider = (props) => {
 
-  const [status, setStatus] = useState({});
   const [messages, setMessages] = useState([]);
   const [me, setMe] = useState(savedMe || "");
   const [activeKey, setActiveKey] = useState('');
@@ -54,7 +52,7 @@ const ChatProvider = (props) => {
     }
   }
   
-  const { loading, data, subscribeToMore, refetch } = useQuery(CHATBOX_QUERY, {
+  const { data, subscribeToMore, refetch } = useQuery(CHATBOX_QUERY, {
       variables: {
         name1: me,
         name2: activeKey,
@@ -62,11 +60,10 @@ const ChatProvider = (props) => {
     }
   )
 
-  if (data && data.chatBox && data.chatBox.messages != messages){
+  if (data && data.chatBox && data.chatBox.messages !== messages){
       setMessages(data.chatBox.messages);
   }
 
-  const [startChat] = useMutation(CREATE_CHATBOX_MUTATION);
   const [sendMessage] = useMutation(CREATE_MESSAGE_MUTATION);
 
   useEffect(() => {
@@ -101,8 +98,8 @@ const ChatProvider = (props) => {
   return (
     <ChatContext.Provider
       value={{
-        status, me, activeKey, signedIn, messages, setMe, setActiveKey,
-        setSignedIn, sendMessage, startChat, displayStatus
+        me, activeKey, signedIn, messages, setMe, setActiveKey,
+        setSignedIn, sendMessage, displayStatus
       }}
       {...props}
     />

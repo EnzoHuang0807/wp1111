@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { useEffect } from 'react'
 import { useChat } from "./hooks/useChat";
 import ChatRoom from './ChatRoom'
 import SignIn from './SignIn'
@@ -15,11 +14,8 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  const { status, signedIn, displayStatus } = useChat()
+  const { signedIn } = useChat()
 
-  useEffect(() => {
-  displayStatus(status)}, [status, displayStatus])
-  
   return (
     <Wrapper> {signedIn? <ChatRoom />: <SignIn />} </Wrapper>
   )

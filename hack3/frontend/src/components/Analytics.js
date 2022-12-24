@@ -16,8 +16,7 @@ function Analytics() {
   useEffect(() => {
   if (data && data.items != items)
     setItems(data.items);
-  }
-  , [data])
+  }, [data])
 
   return (
     <div className="grid grid-cols-12 gap-6">

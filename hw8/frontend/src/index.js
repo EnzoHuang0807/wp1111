@@ -7,6 +7,7 @@ import { createClient } from 'graphql-ws';
 import { ChatProvider } from'./Containers/hooks/useChat'
 import App from "./Containers/App";
 import reportWebVitals from "./reportWebVitals";
+import "antd/dist/reset.css";
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:4000'
